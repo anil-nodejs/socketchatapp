@@ -1,0 +1,15 @@
+{
+  "name": "socket-chatapp",
+  "version": "1.0.0",
+  "description": "Building the socket chat application.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anil Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
