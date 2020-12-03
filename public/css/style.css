@@ -51,3 +51,6 @@ button {
   outline: none;
   border: none;
 }
+button:hover {
+  background: #000000;
+}
