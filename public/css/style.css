@@ -54,3 +54,7 @@ button {
 button:hover {
   background: #000000;
 }
+.sbyteam {
+  position: absolute;
+  bottom: 0;
+}
