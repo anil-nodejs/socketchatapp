@@ -15,7 +15,7 @@ app.use(express.static(publicPath));
 //connecttion events
 io.on('connection', (socket) => {
     console.log("A new user connected");
-    socket.emit("newMessage", generateMessage('Admin', 'welcome to the SAY chat App!'));
+    socket.emit("newMessage", generateMessage('Admin', 'Welcome to the SAY Messenger!'));
 
     socket.broadcast.emit("newMessage", generateMessage('Admin', 'New user joined!'));
     //create event
