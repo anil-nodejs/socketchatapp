@@ -1,6 +1,6 @@
 const express = require('express');
 const http = require('http');
-const { parse } = require('path');
+
 const port = process.env.PORT || 3000;
 const path = require('path');
 const socketIO = require('socket.io');
@@ -72,6 +72,8 @@ io.on('connection', (socket) => {
 //routes access
 const chatRoute = require('./routes/routes');
 app.use('/', chatRoute);
+
+
 
 //server access
 server.listen(port, () => {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/socket-io.svg" type="image/x-icon">
+    <title>Email newslatter</title>
+    <link rel="stylesheet" href="/newslatter/css/style.css">
+</head>
+
+<body>
+    <!-- newslatter div start -->
+    <div id="list-builder"></div>
+    <div id="popup-box">
+        <a class="close" id="popup-close">x</a>
+        <div id="popup-box-content">
+            <h1>NEWSLETTER DELIVERY!</h1>
+            <p class="cbLattertext">
+                We deliver bowls, burritos, taco's, nachos and sometimes appetizing emails with offers and updates. Do
+                subscribe, we
+                promise not to spam!
+            </p>
+            <form id="popup-form">
+                <input type="hidden" name="list" value="key_list_etc" />
+                <input type="text" name="email" id="email" placeholder="Email Address" />
+                <button type="button" name="subscribe" id="submit">Subscribe</button>
+                <p class="cbLattertext" id="thanksmsg">Thank you for subscribing the news latter!</p>
+                <p class="cbLattertext">We respect your privacy.</p>
+                <div class="err" id="eerror"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- close -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/newslatter/js/scripts.js"></script>
+
+</body>
+
+</html>
