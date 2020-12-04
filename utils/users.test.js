@@ -23,12 +23,12 @@ describe('Users', () => {
     })
 
     it('should add new user', () => {
-        let users = new Users()
+        let users = new Users();
         let user =
         {
-            id: "frfrfr4",
-            name: "Anil",
-            room: "The Office of SAY Team"
+            id: "dkefe",
+            name: "doedfoe",
+            room: "The Office of SAY Team1"
         };
         let reUser = users.addUser(user.id, user.name, user.room);
         expect(users.users).toEqual([reUser]);
