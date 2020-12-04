@@ -1,9 +1,11 @@
 const express = require('express');
 const http = require('http');
+const { parse } = require('path');
 const port = process.env.PORT || 3000;
 const path = require('path');
 const socketIO = require('socket.io');
 const { generateMessage, generateLocationMessage } = require('./utils/message')
+const { isRealString } = require('./utils/isRealString');
 //access the public path
 const publicPath = path.join(__dirname, 'public');
 let app = express();
@@ -15,9 +17,22 @@ app.use(express.static(publicPath));
 //connecttion events
 io.on('connection', (socket) => {
     console.log("A new user connected");
-    socket.emit("newMessage", generateMessage('Admin', 'Welcome to the SAY Messenger!'));
 
-    socket.broadcast.emit("newMessage", generateMessage('Admin', 'New user joined!'));
+
+
+    //join event
+    socket.on('join', (params, callback) => {
+        console.log(socket.id);
+        if (!isRealString(params.name) || !isRealString(params.room)) {
+            callback('Name and room are required');
+        }
+        socket.join(params.room);
+        socket.emit("newMessage", generateMessage('Admin', `Welcome to the ${params.room}`));
+
+        socket.broadcast.emit("newMessage", generateMessage('Admin', 'New user joined!'));
+
+        callback();
+    })
     //create event
     socket.on('createMessage', (message, callback) => {
         console.log("created Message", message);
@@ -30,6 +45,7 @@ io.on('connection', (socket) => {
         //     });\
         callback('This is the severs!');
     });
+
     socket.on('createLocationMessage', (coords) => {
         io.emit('newLocationMessage', generateLocationMessage('Admin', coords.lat, coords.lng))
     })

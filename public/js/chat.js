@@ -4,8 +4,17 @@ function scrollBottomMessage() {
     messages.scrollIntoView();
 }
 socket.on('connect', function () {
-    console.log("connected to server");
-
+    let serachQuery = window.location.search.substring(1);
+    let params = JSON.parse('{"' + decodeURI(serachQuery).replace(/&/g, '","').replace(/\+/g, '').replace(/=/g, '":"') + '"}');
+    socket.emit('join', params, function (err) {
+        if (err) {
+            alert(err);
+            window.location.href = '/';
+        }
+        else {
+            console.log('Successfully logged in');
+        }
+    })
 })
 
 socket.on('disconnect', function () {

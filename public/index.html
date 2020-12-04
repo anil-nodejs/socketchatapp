@@ -1,64 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>SAY Messenger</title>
-    <meta name="viewport" content="width=device-width, inital-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/socket-io.svg" type="image/x-icon">
+    <title>SAYm | Joiner</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body class="chat">
+<body class="centered-form">
+    <div class="centered-form__form">
+        <form action="/chat.html">
+            <div class="form-field">
+                <h3>Join SAY Messanger</h3>
+            </div>
+            <div class="form-field">
+                <label for="">User Name</label>
+                <input type="text" name="name" autofocus>
+            </div>
 
-    <div class="chat__sidebar">
-        <h3>Messenger User</h3>
-        <div id="users"></div>
+            <div class="form-field">
+                <label for="">Room Name</label>
+                <input type="text" name="room" autofocus>
+            </div>
+
+            <div class="form-field">
+                <button>Join</button>
+            </div>
+
+        </form>
     </div>
-
-    <div class="chat__main">
-        <ol id="message" class="chat__messages">
-            <li class="buildname">Build by Anil Yadav</li>
-        </ol>
-
-        <div class="chat__footer">
-            <form id="message-form">
-                <input name="message" type="text" placeholder="Message" autocomplete="off" />
-                <button type="submit" id="send">Send</button>
-            </form>
-            <button id="send-location">Send location</button>
-        </div>
-    </div>
-
-    <script id="message-template" type="text/template">
-      <li class="message">
-        <div class="message__title">
-          <h4>{{from}}</h4>
-          <span>{{createdAt}}</span>
-        </div>
-        <div class="message__body">
-          <p>{{text}}</p>
-        </div>
-      </li>
-    </script>
-
-    <script id="location-message-template" type="text/template">
-      <li class="message">
-        <div class="message__title">
-          <h4>{{from}}</h4>
-          <span>{{createdAt}}</span>
-        </div>
-        <div class="message__body">
-          <a href="{{url}}" target="_blank">Share your location</a>
-          
-        </div>
-      </li>
-    </script>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript" src="/js/libs/moment.js"></script>
-    <script type="text/javascript" src="/js/libs/mustache.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
-
 </body>
 
 </html>
